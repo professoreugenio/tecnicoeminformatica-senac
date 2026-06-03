@@ -43,6 +43,23 @@ header h1 {
   transform: scale(1.05);
 }
 
+#resposta {
+  border: solid 1px #cccccc;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%;
+  display: none;
+}
+
+#lista {
+  border: solid 1px #000000;
+  border-radius: 10px;
+  padding: 20px;
+  width: 40%;
+  /* display: none; */
+  margin:20px auto
+}
+
 main {
   flex: 1;
   padding: 30px;
