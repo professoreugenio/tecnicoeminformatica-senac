@@ -18,7 +18,8 @@ const textoMenor = "Digite pelo menos 5 caracteres"
 
 function obterData() {
     const data = new Date();
-    return data.toLocaleDateString('pt-BR') + " " + data.toLocaleTimeString('pt-BR');
+    return data.toLocaleDateString('pt-BR') 
+    + " " + data.toLocaleTimeString('pt-BR');
 }
 
 
