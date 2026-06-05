@@ -6,7 +6,6 @@
     <!-- Required meta tags -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-
     <!-- Bootstrap CSS v5.3.8 -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
@@ -20,47 +19,38 @@
             text-align: center;
         }
     </style>
-
-
 </head>
 
 <body>
-
     <div class="container">
-        <div class="row">
-            <div class="col-12">
+        <div class="row" style="display: flex;justify-content: center;">
+            <div class="col-6">
                 <header>
                     <!-- place navbar here -->
                     <h1>APLICAÇÃO COM getelement</h1>
                 </header>
-                <form action="" method="get" id="formdeteste">
-
-                    <div class="mb-3">
-                        <label for="" class="form-label">Name</label>
-                        <input type="text" class="form-control" name="" id="dados" aria-describedby="helpId"
-                            placeholder="" />
-                        <small id="helpId" class="form-text text-body-secondary">Help text</small>
+                <form action="" method="get" id="formDeTeste" class="p-3 border rounded shadow-sm">
+                    <label for="dados" class="form-label">
+                        Nome
+                    </label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control" name="nome" id="dados" placeholder="Digite seu nome"
+                            aria-describedby="btnRegistro" required>
+                        <button type="button" class="btn btn-primary" id="btnRegistro">
+                            Registrar
+                        </button>
                     </div>
-
-
-                    <button type="button" class="btn btn-primary" id="btnRegistro">
-                        Button
-                    </button>
-
-
+                    <small class="form-text text-body-secondary">
+                        Informe o nome completo.
+                    </small>
                 </form>
             </div>
-
-
+        </div>
+        <div class="col-12">
             <div id="retorno">Texto</div>
-
         </div>
     </div>
-
-
-
     <main>
-
     </main>
     <footer>
         <!-- place footer here -->
@@ -69,14 +59,37 @@
     <script>
         const meuBotao = document.getElementById("btnRegistro");
         const meuInput = document.getElementById("dados");
-        const corVerde = "#d1e7dd";
-        const corLaranja = "#fff3cd";
-        const corVermelho = "#f8d7da";
+        const retornotexto = document.getElementById("retorno");
+        const corVerde = "rgba(25,135,84,0.2)";
+        const corLaranja = "rgba(253,126,20,0.2)";
+        const corVermelho = "rgba(220,53,69,0.2)";
+        const t1 = "<b>" + dadoinput + " </b> registrado com sucesso!";
+        const t2 = "Digite valores acima de 5 dígitos";
+        const t3 = "Campo está vazio";
+
+        function retornoFinal(cor, frase) {
+            retornotexto.style.display = "block";
+            retornotexto.style.backgroundColor = cor;
+            retornotexto.innerHTML = frase
+            return
+        }
+
+        meuBotao.addEventListener("click", () => {
+            const dadoinput = meuInput.value
+            if (dadoinput === "") {
+                retornoFinal(corLaranja, t3)
+            } else if (dadoinput.length < 5) {
+                retornoFinal(corVermelho, t2)
+            } else {
+                retornoFinal(corVerde, t1)
+            }
+            console.log("Botão acionado: " + dadoinput)
+        })
+
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
         crossorigin="anonymous"></script>
-
 </body>
 
 </html>
