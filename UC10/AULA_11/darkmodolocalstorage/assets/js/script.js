@@ -16,17 +16,26 @@ function exibelista() {
 
     TaskLista.innerHTML = "";
 
-    if (lista.lenght === 0) {
+    if (lista.length === 0) {
 
         TaskLista.innerHTML = "<div>Nenhum dado cadstrado</div>";
         return
 
     }
 
-    lista.forEach((nome) => {
+    lista.forEach((nome, indice) => {
         const div = document.createElement("div");
-        div.textContent = nome;
+        div.textContent = indice + " " + nome;
+        const btnExcluir = document.createElement("button");
+        btnExcluir.textContent = "Excluir"
+        div.appendChild(btnExcluir);
         TaskLista.appendChild(div);
+
+        btnExcluir.addEventListener("click", () => {
+            lista.splice(indice, 1);
+            localStorage.setItem("registronomes", JSON.stringify(lista));
+            exibelista();
+        });
     });
 }
 
