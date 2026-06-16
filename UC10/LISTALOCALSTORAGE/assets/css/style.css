@@ -1,0 +1,13 @@
+body {
+  background-color: #f4f4f4;
+}
+
+.card {
+  border-radius: 12px;
+}
+
+.list-group-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
