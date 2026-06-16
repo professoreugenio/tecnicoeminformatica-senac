@@ -1,0 +1,16 @@
+body {
+  background-color: #f4f6f9;
+}
+
+.hero {
+  background: linear-gradient(135deg, #0d6efd, #212529);
+}
+
+.card {
+  border: none;
+  border-radius: 15px;
+}
+
+footer {
+  margin-top: 60px;
+}
