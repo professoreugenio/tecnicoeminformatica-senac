@@ -242,6 +242,36 @@ app.get('/clientes', (req, res) => {
   res.sendFile(path.join(caminhoFrontend, 'clientes.html'));
 });
 
+app.get('/api/clientes', async (req, res) => {
+  try {
+    const resultado = await pool.query(`
+      SELECT 
+        id_cliente,
+        nome,
+        email,
+        telefone,
+        cpf,
+        ativo
+      FROM clientes
+      ORDER BY id_cliente ASC
+    `);
+
+    return res.status(200).json(resultado.rows);
+
+  } catch (erro) {
+    console.error('Erro ao listar produtos:', erro);
+
+    return res.status(500).json({
+      sucesso: false,
+      mensagem: 'Erro ao listar produtos.',
+      erro: erro.message
+    });
+  }
+});
+
+
+
+
 
 app.get('/usuarios', (req, res) => {
   res.sendFile(path.join(caminhoFrontend, 'usuarios.html'));
